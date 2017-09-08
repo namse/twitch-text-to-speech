@@ -12,32 +12,48 @@ ws.onopen = () => {
 };
 
 const audio = new Audio();
-const urlQueue = [];
+const chatQueue = [];
 let isPlaying = false;
+const textDiv = document.getElementById('text');
 
 audio.addEventListener('ended', () => {
-  isPlaying = false;
-  setTimeout(() => playChat(), 3000);
+  setTimeout(() => {
+    textDiv.innerHTML = '';
+    isPlaying = false;
+    setTimeout(() => playChat(), 2000);
+  }, 2000);
 })
 
 function playChat() {
   if (isPlaying) {
     return;
   }
-  const url = urlQueue.shift();
-  if (url) {
+  const chat = chatQueue.shift();
+  if (chat) {
+    const {
+      name,
+      content
+    } = chat;
+    const text = /^[\x00-\x7F]*$/.test(name) && /^[\x00-\x7F]*$/.test(content)
+      ? `ddingddong. ddingddong. Chatting from ${name}.\n${content}`
+      : `띵동. 띵동. ${name} 님의 채팅입니다.\n${content}`
+    const rawURL = /^[\x00-\x7F]*$/.test(name) && /^[\x00-\x7F]*$/.test(content)
+      ? `https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=${text}&tl=en-us`
+      : `https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=${text}&tl=ko-kr`
+    const url = encodeURI(rawURL);
     audio.src = url;
     isPlaying = true;
     audio.play();
+
+    textDiv.innerHTML = text.replace('\n', '<br>');
   }
 }
 
 function pushChat(name, content) {
-  const rawURL = /^[\x00-\x7F]*$/.test(name) && /^[\x00-\x7F]*$/.test(content)
-    ? `https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=ddingddong. ddingddong. Chatting from ${name}. ${content}&tl=en-us`
-    : `https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=띵동. 띵동. ${name} 님의 채팅입니다. ${content}&tl=ko-kr`
-  const url = encodeURI(rawURL);
-  urlQueue.push(url);
+  chatQueue.push({
+    name,
+    content,
+  });
 
   if (!isPlaying) {
     playChat();
