@@ -37,10 +37,12 @@ function playChat() {
     const text = /^[\x00-\x7F]*$/.test(name) && /^[\x00-\x7F]*$/.test(content)
       ? `Chatting from ${name}.\n${content}`
       : `채팅. ${name} 님.\n${content}`
-    const rawURL = /^[\x00-\x7F]*$/.test(name) && /^[\x00-\x7F]*$/.test(content)
-      ? `https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=${text}&tl=en-us`
-      : `https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=${text}&tl=ko-kr`
-    const url = encodeURI(rawURL);
+    const encodedText = encodeURIComponent(text);
+    console.log(encodedText);
+    const url = /^[\x00-\x7F]*$/.test(name) && /^[\x00-\x7F]*$/.test(content)
+      ? `https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=${encodedText}&tl=en-us`
+      : `https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=${encodedText}&tl=ko-kr`
+    console.log(url);
     audio.src = url;
     isPlaying = true;
     audio.play();
