@@ -35,8 +35,8 @@ function playChat() {
       content
     } = chat;
     const text = /^[\x00-\x7F]*$/.test(name) && /^[\x00-\x7F]*$/.test(content)
-      ? `ddingddong. ddingddong. Chatting from ${name}.\n${content}`
-      : `띵동. 띵동. ${name} 님의 채팅입니다.\n${content}`
+      ? `Chatting from ${name}.\n${content}`
+      : `채팅. ${name} 님.\n${content}`
     const rawURL = /^[\x00-\x7F]*$/.test(name) && /^[\x00-\x7F]*$/.test(content)
       ? `https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=${text}&tl=en-us`
       : `https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=${text}&tl=ko-kr`
