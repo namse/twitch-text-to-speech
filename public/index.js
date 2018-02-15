@@ -30,7 +30,8 @@ function isEnglish(text) {
 
 function changeContentReadable(content) {
   return content.replace(/ㅋ/g, '깔')
-    .replace(/ㅎ/g, '호홋');
+    .replace(/ㅎ/g, '호홋')
+    .replace(/^\?/g, '띠오옹?');
 }
 
 function playChat() {
