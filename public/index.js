@@ -52,6 +52,12 @@ function playChat() {
 }
 
 function pushChat(name, content) {
+  if (name === 'Nightbot') {
+    return;
+  }
+  if (content.indexOf('!sr') === 0) {
+    return;
+  }
   chatQueue.push({
     name,
     content,
