@@ -7,5 +7,10 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "aws-sdk": "^2.195.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  }
 }
