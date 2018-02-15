@@ -8,7 +8,7 @@ async function textToSpeech(text) {
     OutputFormat: 'mp3',
     Text: text,
     TextType: 'text',
-    VoiceId: 'Seoyeon'
+    VoiceId: 'Seoyeon',
   };
   const {
     AudioStream: audioStream,

@@ -28,6 +28,11 @@ function isEnglish(text) {
   return /^[\x00-\x7F]*$/.test(text);
 }
 
+function changeContentReadable(content) {
+  return content.replace(/ㅋ/g, '깔')
+    .replace(/ㅎ/g, '호홋');
+}
+
 function playChat() {
   if (isPlaying) {
     return;
@@ -38,7 +43,8 @@ function playChat() {
       name,
       content
     } = chat;
-    const text = `채팅. ${name} 님.\n${content}`
+    const changedContent = changeContentReadable(content);
+    const text = `채팅. ${name} 님.\n${changedContent}`
     const encodedText = encodeURIComponent(text);
     console.log(encodedText);
     const url = `/texttospeech?text=${encodedText}`
