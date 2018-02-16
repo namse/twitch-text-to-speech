@@ -45,7 +45,7 @@ function playChat() {
       content
     } = chat;
     const changedContent = changeContentReadable(content);
-    const text = `채팅. ${name} 님.\n${changedContent}`
+    const text = changedContent;
     const encodedText = encodeURIComponent(text);
     console.log(encodedText);
     const url = `/texttospeech?text=${encodedText}`
