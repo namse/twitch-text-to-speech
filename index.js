@@ -34,10 +34,6 @@ yt.on('messages', items => {
   sockets.forEach(socket => socket.send(JSON.stringify(items)));
 });
 
-yt.on('error', error => {
-  console.error(error);
-});
-
 yt.listen();
 
 //////////////////////////////////////////////

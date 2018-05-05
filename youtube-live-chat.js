@@ -1,6 +1,11 @@
 const request = require('request')
 const { EventEmitter } = require('events')
 
+function wait(time = 5000) {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(), time);
+  });
+}
 /**
  * The main hub for acquire live chat with the YouTube Date API.
  * @extends {EventEmitter}
@@ -58,7 +63,6 @@ class YouTube extends EventEmitter {
     const url = 'https://www.googleapis.com/youtube/v3/liveChat/messages' +
       `?liveChatId=${this.chatId}` +
       '&part=id,snippet,authorDetails' +
-      '&maxResults=2000' +
       `&key=${this.key}` +
       `${pageToken ? `&pageToken=${pageToken}` : ''}`
     const data = await this.request(url);
@@ -86,37 +90,35 @@ class YouTube extends EventEmitter {
   }
 
   async listen() {
-    await this.getLive();
-    console.log('hi');
-    try {
-      await this.poll();
-    }
-    catch (err) {
-      console.error(err);
-      setTimeout(async () => {
-        await this.listen();
-      }, 5000);
+    while (true) {
+      try {
+        await this.getLive();
+        await this.poll();
+      }
+      catch (err) {
+        console.error(err);
+        await wait(5000);
+      }
     }
   }
 
   async poll(pageToken) {
-    const data = await this.getChat(pageToken);
-    // console.log(data);
+    while (true) {
+      const data = await this.getChat(pageToken);
 
-    const {
-      pollingIntervalMillis,
-      nextPageToken,
-      items,
-    } = data;
-    console.log(nextPageToken, pollingIntervalMillis, items.length);
+      const {
+        pollingIntervalMillis,
+        nextPageToken,
+        items,
+      } = data;
+      console.log(nextPageToken, pollingIntervalMillis, items.length);
 
-    if (items.length) {
-      this.emit('messages', items);
+      if (items.length) {
+        this.emit('messages', items);
+      }
+
+      await wait(pollingIntervalMillis);
     }
-
-    setTimeout(async () => {
-      await this.poll(nextPageToken);
-    }, pollingIntervalMillis);
   }
 
   /**
