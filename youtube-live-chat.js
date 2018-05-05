@@ -102,9 +102,10 @@ class YouTube extends EventEmitter {
     }
   }
 
-  async poll(pageToken) {
+  async poll() {
+    let token;
     while (true) {
-      const data = await this.getChat(pageToken);
+      const data = await this.getChat(token);
 
       const {
         pollingIntervalMillis,
@@ -117,6 +118,7 @@ class YouTube extends EventEmitter {
         this.emit('messages', items);
       }
 
+      token = nextPageToken;
       await wait(pollingIntervalMillis);
     }
   }
