@@ -19,7 +19,11 @@ function isEnglish(text) {
 function changeContentReadable(content) {
   return content.replace(/ㅋ/g, '깔')
     .replace(/ㅎ/g, '호홋')
-    .replace(/^\?/g, '띠오옹?');
+    .replace(/^\?/g, '띠오옹?')
+    .replace(/ㅇㅈ/g, '인죵')
+    .replace(/ㄹㅇ/g, '레알')
+    .replace(/ㅅㅂ/g, '쉬벌')
+    .replace(/ㄱㄱ/g, '거거');
 }
 
 function playChat() {
