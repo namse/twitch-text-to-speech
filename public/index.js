@@ -23,7 +23,9 @@ function changeContentReadable(content) {
     .replace(/ㅇㅈ/g, '인죵')
     .replace(/ㄹㅇ/g, '레알')
     .replace(/ㅅㅂ/g, '쉬벌')
-    .replace(/ㄱㄱ/g, '거거');
+    .replace(/ㄱㄱ/g, '거거')
+    .replace(/ㅇㅇ/g, '응응')
+    .replace(/ㅠㅠ/g, '유유')
 }
 
 function playChat() {
