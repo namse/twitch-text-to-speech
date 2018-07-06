@@ -29,6 +29,7 @@ function changeContentReadable(content) {
     .replace(/ㄴㄷ\^\^/g, '네다씹')
     .replace(/namse/g, '남세')
     .replace(/ㄱㄴ/g, '갔냐?')
+    .replace(/ㅈㄷㄱ/g, '뒤지기')
 }
 
 function beReady() {
