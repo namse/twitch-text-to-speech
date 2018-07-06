@@ -1,15 +1,12 @@
 
 const audio = new Audio();
+const audioQueue = [];
 const chatQueue = [];
 let isPlaying = false;
 const textDiv = document.getElementById('text');
 
 audio.addEventListener('ended', () => {
-  setTimeout(() => {
-    textDiv.innerHTML = '';
-    isPlaying = false;
-    setTimeout(() => playChat(), 2000);
-  }, 2000);
+  playAudio();
 })
 
 function isEnglish(text) {
@@ -17,7 +14,9 @@ function isEnglish(text) {
 }
 
 function changeContentReadable(content) {
-  return content.replace(/ㅋ/g, '깔')
+  return content
+    .replace(/\r\n/g, '')
+    .replace(/ㅋ/g, '깔')
     .replace(/ㅎ/g, '호홋')
     .replace(/^\?/g, '띠오옹?')
     .replace(/ㅇㅈ/g, '인죵')
@@ -28,6 +27,93 @@ function changeContentReadable(content) {
     .replace(/ㅠㅠ/g, '유유')
     .replace(/ㄴㄷㅆ/g, '네다씹')
     .replace(/ㄴㄷ\^\^/g, '네다씹')
+  // TODO : Namse를 남세 라고 읽도록 만들기.
+  // TODO : ㅆㅇㅈ 넣기
+  // TODO : ㄱㄴ 넣기
+  // TODO : 헛소리하지마임마
+}
+
+function beReady() {
+  setTimeout(() => {
+    textDiv.innerHTML = '';
+    isPlaying = false;
+    setTimeout(() => playChat(), 2000);
+  }, 2000);
+}
+
+function playAudio() {
+  const url = audioQueue.shift();
+  if (!url) {
+    beReady();
+    return;
+  }
+
+  audio.src = url;
+  isPlaying = true;
+  audio.play();
+}
+
+const ContentType = {
+  TEXT: 'TEXT',
+  SIGNATURE: 'SIGNATURE',
+};
+
+const signatureSounds = [
+  { text: '어서일해라', audio: '어서일해라.mp3' },
+  { text: '어서 일해라', audio: '어서일해라.mp3' },
+];
+
+class AudioUnit {
+  constructor(content, type, signature) {
+    this.content = content;
+    this.type = type;
+    this.signature = signature;
+  }
+}
+
+function splitContentByType(content) {
+  if (!content.length) {
+    return [];
+  }
+
+  const sign = signatureSounds.find(sign => content.indexOf(sign.text) >= 0);
+  if (!sign) {
+    return [new AudioUnit(content, ContentType.TEXT)];
+  }
+
+  const { text: signText } = sign;
+
+  const index = content.indexOf(signText);
+
+  const front = content.substring(0, index);
+  const rear = content.substring(index + signText.length);
+
+  return [
+    ...(front.length ? [new AudioUnit(front, ContentType.TEXT)] : []),
+    new AudioUnit(signText, ContentType.SIGNATURE, sign),
+    ...splitContentByType(rear),
+  ];
+}
+
+function makeUrl(audioUnit) {
+  const { content, signature } = audioUnit;
+
+  switch (audioUnit.type) {
+    case ContentType.TEXT:
+      return `/texttospeech?text=${encodeURIComponent(content)}`;
+    case ContentType.SIGNATURE:
+      return `/sounds/${encodeURIComponent(signature.audio)}`;
+  }
+}
+
+function processUrls(content) {
+  const changedContent = changeContentReadable(content);
+
+  const audioUnits = splitContentByType(changedContent);
+
+  const urls = audioUnits.map(unit => makeUrl(unit));
+
+  return urls;
 }
 
 function playChat() {
@@ -35,23 +121,19 @@ function playChat() {
     return;
   }
   const chat = chatQueue.shift();
-  if (chat) {
-    const {
-      name,
-      content
-    } = chat;
-    const changedContent = changeContentReadable(content);
-    const text = changedContent;
-    const encodedText = encodeURIComponent(text);
-    console.log(encodedText);
-    const url = `/texttospeech?text=${encodedText}`
-    console.log(url);
-    audio.src = url;
-    isPlaying = true;
-    audio.play();
-
-    textDiv.innerHTML = text.replace('\n', '<br>');
+  if (!chat) {
+    return;
   }
+
+  const {
+    content,
+  } = chat;
+
+
+  const urls = processUrls(content);
+
+  audioQueue.push(...urls);
+  playAudio();
 }
 
 function pushChat(name, content) {
