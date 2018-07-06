@@ -27,10 +27,8 @@ function changeContentReadable(content) {
     .replace(/ㅠㅠ/g, '유유')
     .replace(/ㄴㄷㅆ/g, '네다씹')
     .replace(/ㄴㄷ\^\^/g, '네다씹')
-  // TODO : Namse를 남세 라고 읽도록 만들기.
-  // TODO : ㅆㅇㅈ 넣기
-  // TODO : ㄱㄴ 넣기
-  // TODO : 헛소리하지마임마
+    .replace(/namse/g, '남세')
+    .replace(/ㄱㄴ/g, '갔냐?')
 }
 
 function beReady() {
@@ -61,6 +59,7 @@ const ContentType = {
 const signatureSounds = [
   { text: '어서일해라', audio: '어서일해라.mp3' },
   { text: '어서 일해라', audio: '어서일해라.mp3' },
+  // TODO : 헛소리하지마임마 시그니처 사운드 추가하기
 ];
 
 class AudioUnit {
