@@ -26,6 +26,8 @@ function changeContentReadable(content) {
     .replace(/ㄱㄱ/g, '거거')
     .replace(/ㅇㅇ/g, '응응')
     .replace(/ㅠㅠ/g, '유유')
+    .replace(/ㄴㄷㅆ/g, '네다씹')
+    .replace(/ㄴㄷ\^\^/g, '네다씹')
 }
 
 function playChat() {
