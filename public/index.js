@@ -30,6 +30,7 @@ function changeContentReadable(content) {
     .replace(/namse/g, '남세')
     .replace(/ㄱㄴ/g, '갔냐?')
     .replace(/ㄷㅈㄱ/g, '뒤지기')
+    .replace(/:D/g, '빅스마일')
 }
 
 function beReady() {
