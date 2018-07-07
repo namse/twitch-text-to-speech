@@ -65,10 +65,10 @@ const signatureSounds = [
   { text: '돼같놈', audio: '돼지같은놈.mp3' },
 
   // > Thank you 음성빌런 Voice Villein
-  { text: '더러워', audio: '더러워.mp3' },
-  { text: 'ㄷㄹㅇ', audio: '더러워.mp3' },
   { text: '더러워요', audio: '더러워요.mp3' },
   { text: '더러운ㅅㄲ', audio: '더러운새끼.mp3', maxCount: 2 },
+  { text: '더러워', audio: '더러워.mp3' },
+  { text: 'ㄷㄹㅇ', audio: '더러워.mp3' },
 
   { text: '변태새끼', audio: '변태새끼.mp3', maxCount: 7 },
   { text: 'ㅂㅌㅅㄲ', audio: '변태새끼.mp3', maxCount: 7 },
