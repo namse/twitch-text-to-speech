@@ -137,9 +137,16 @@ function makeUrl(audioUnit) {
 }
 
 function processUrls(content) {
-  const changedContent = changeContentReadable(content);
-
-  const audioUnits = splitContentByType(changedContent);
+  const audioUnits = splitContentByType(content)
+    .map(unit => {
+      if (unit.type !== ContentType.TEXT) {
+        return unit;
+      }
+      return {
+        ...unit,
+        content: changeContentReadable(unit.content),
+      };
+    });
 
   const urls = audioUnits.map(unit => makeUrl(unit));
 
