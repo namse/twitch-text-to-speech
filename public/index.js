@@ -60,7 +60,13 @@ const ContentType = {
 const signatureSounds = [
   { text: '어서일해라', audio: '어서일해라.mp3' },
   { text: '어서 일해라', audio: '어서일해라.mp3' },
-  // TODO : 헛소리하지마임마 시그니처 사운드 추가하기
+
+  { text: '도대체얼마나쳐먹는게야', audio: '도대체얼마나쳐먹는게야.mp3' },
+  { text: '도대체얼마나쳐먹는거야', audio: '도대체얼마나쳐먹는게야.mp3' },
+  { text: '도얼쳐', audio: '도대체얼마나쳐먹는게야.mp3' },
+  { text: '또먹', audio: '도대체얼마나쳐먹는게야.mp3' },
+  { text: '돼지같은놈', audio: '돼지같은놈.mp3' },
+  { text: '돼같놈', audio: '돼지같은놈.mp3' },
 ];
 
 class AudioUnit {
