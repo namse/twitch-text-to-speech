@@ -142,8 +142,10 @@ function playChat() {
   playAudio();
 }
 
+
+const banNames = ['Nightbot', 'TwipKr'];
 function pushChat(name, content) {
-  if (name === 'Nightbot') {
+  if (banNames.includes(name)) {
     return;
   }
   if (content.indexOf('!sr') === 0) {
