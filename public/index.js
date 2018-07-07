@@ -60,12 +60,9 @@ const ContentType = {
 
 const signatureSounds = [
   { text: '어서일해라', audio: '어서일해라.mp3' },
-  { text: '어서 일해라', audio: '어서일해라.mp3' },
 
   { text: '도대체얼마나쳐먹는게야', audio: '도대체얼마나쳐먹는게야.mp3' },
-  { text: '도대체얼마나쳐먹는거야', audio: '도대체얼마나쳐먹는게야.mp3' },
   { text: '도얼쳐', audio: '도대체얼마나쳐먹는게야.mp3' },
-  { text: '또먹', audio: '도대체얼마나쳐먹는게야.mp3' },
   { text: '돼지같은놈', audio: '돼지같은놈.mp3' },
   { text: '돼같놈', audio: '돼지같은놈.mp3' },
 
@@ -73,7 +70,7 @@ const signatureSounds = [
   { text: '더러워', audio: '더러워.mp3' },
   { text: 'ㄷㄹㅇ', audio: '더러워.mp3' },
   { text: '더러워요', audio: '더러워요.mp3' },
-  { text: '더러운ㅅㄲ', audio: '더러운새끼.mp3' },
+  { text: '더러운ㅅㄲ', audio: '더러운새끼.mp3', maxCount: 2 },
 
   { text: '변태새끼', audio: '변태새끼.mp3', maxCount: 7 },
   { text: 'ㅂㅌㅅㄲ', audio: '변태새끼.mp3', maxCount: 7 },
@@ -82,7 +79,8 @@ const signatureSounds = [
   { text: '않이', audio: '않이.mp3' },
   { text: '으ㅡ', audio: '으.mp3' },
   { text: '경멸', audio: '으경멸.mp3' },
-  { text: '캭퉤', audio: '카악퉤.mp3', maxCount: 7 },
+  { text: '캭퉤', audio: '카악퉤.mp3', maxCount: 4 },
+  { text: '남세놈아', audio: '남세놈아.mp3' },
   // < Thank you 음성빌런 Voice Villein
 ];
 
