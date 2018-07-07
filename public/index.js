@@ -79,7 +79,7 @@ const signatureSounds = [
   { text: '않이', audio: '않이.mp3' },
   { text: '으ㅡ', audio: '으.mp3' },
   { text: '경멸', audio: '으경멸.mp3' },
-  { text: '캭퉤', audio: '캭퉤.mp3', maxCount: 4 },
+  { text: '캭퉤', audio: '캭퉤.mp3', maxCount: 3 },
   { text: '남세놈아', audio: '남세놈아.mp3' },
   // < Thank you 음성빌런 Voice Villein
 ];
