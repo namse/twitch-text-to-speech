@@ -34,11 +34,9 @@ function changeContentReadable(content) {
 }
 
 function beReady() {
-  setTimeout(() => {
-    textDiv.innerHTML = '';
-    isPlaying = false;
-    setTimeout(() => playChat(), 2000);
-  }, 2000);
+  textDiv.innerHTML = '';
+  isPlaying = false;
+  setTimeout(() => playChat(), 2000);
 }
 
 function playAudio() {
