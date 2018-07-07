@@ -95,7 +95,7 @@ function splitContentByType(content) {
   const rear = content.substring(index + signText.length);
 
   return [
-    ...(front.length ? [new AudioUnit(front, ContentType.TEXT)] : []),
+    ...splitContentByType(front),
     new AudioUnit(signText, ContentType.SIGNATURE, sign),
     ...splitContentByType(rear),
   ];
