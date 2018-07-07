@@ -174,7 +174,7 @@ function playChat() {
 }
 
 
-const banNames = ['Nightbot', 'TwipKr'];
+const banNames = ['Nightbot', 'Twipkr'];
 function pushChat(name, content) {
   if (banNames.includes(name)) {
     return;
