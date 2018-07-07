@@ -73,23 +73,16 @@ const signatureSounds = [
   { text: '더러워', audio: '더러워.mp3' },
   { text: 'ㄷㄹㅇ', audio: '더러워.mp3' },
   { text: '더러워요', audio: '더러워요.mp3' },
-  { text: 'ㄷㄹㅇㅇ', audio: '더러워요.mp3' },
-  { text: '변태새끼', audio: '변태새끼.mp3' },
-  { text: '변태 새끼', audio: '변태새끼.mp3' },
-  { text: 'ㅂㅌㅅㄲ', audio: '변태새끼.mp3' },
-  { text: 'ㅂㅌ', audio: '변태새끼.mp3' },
+  { text: '더러운ㅅㄲ', audio: '더러운새끼.mp3' },
+
+  { text: '변태새끼', audio: '변태새끼.mp3', maxCount: 7 },
+  { text: 'ㅂㅌㅅㄲ', audio: '변태새끼.mp3', maxCount: 7 },
+
+
   { text: '않이', audio: '않이.mp3' },
-  { text: '윾', audio: '으.mp3' },
-  { text: '으-', audio: '으.mp3' },
   { text: '으ㅡ', audio: '으.mp3' },
   { text: '경멸', audio: '으경멸.mp3' },
-  { text: '카악퉤', audio: '카악퉤.mp3' },
-  { text: '카악 퉤', audio: '카악퉤.mp3' },
-  { text: '캭 퉤', audio: '카악퉤.mp3' },
-  { text: '퉤', audio: '카악퉤.mp3' },
-  { text: '카악', audio: '카악퉤.mp3' },
-  { text: '캭', audio: '카악퉤.mp3' },
-  { text: '퉷', audio: '카악퉤.mp3' },
+  { text: '캭퉤', audio: '카악퉤.mp3', maxCount: 7 },
   // < Thank you 음성빌런 Voice Villein
 ];
 
@@ -132,7 +125,15 @@ function makeUrl(audioUnit) {
     case ContentType.TEXT:
       return `/texttospeech?text=${encodeURIComponent(content)}`;
     case ContentType.SIGNATURE:
-      return `/sounds/${encodeURIComponent(signature.audio)}`;
+      let fileName = signature.audio;
+
+      if (signature.maxCount) {
+        const index = Math.floor(Math.random() * signature.maxCount);
+        const extensionIndex = fileName.lastIndexOf('.');
+        fileName = `${fileName.substring(0, extensionIndex)}${index === 0 ? '' : index}${fileName.substring(extensionIndex)}`;
+      }
+
+      return `/sounds/${encodeURIComponent(fileName)}`;
   }
 }
 
