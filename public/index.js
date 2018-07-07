@@ -67,6 +67,29 @@ const signatureSounds = [
   { text: '또먹', audio: '도대체얼마나쳐먹는게야.mp3' },
   { text: '돼지같은놈', audio: '돼지같은놈.mp3' },
   { text: '돼같놈', audio: '돼지같은놈.mp3' },
+
+  // > Thank you 음성빌런 Voice Villein
+  { text: '더러워', audio: '더러워.mp3' },
+  { text: 'ㄷㄹㅇ', audio: '더러워.mp3' },
+  { text: '더러워요', audio: '더러워요.mp3' },
+  { text: 'ㄷㄹㅇㅇ', audio: '더러워요.mp3' },
+  { text: '변태새끼', audio: '변태새끼.mp3' },
+  { text: '변태 새끼', audio: '변태새끼.mp3' },
+  { text: 'ㅂㅌㅅㄲ', audio: '변태새끼.mp3' },
+  { text: 'ㅂㅌ', audio: '변태새끼.mp3' },
+  { text: '않이', audio: '않이.mp3' },
+  { text: '윾', audio: '으.mp3' },
+  { text: '으-', audio: '으.mp3' },
+  { text: '으ㅡ', audio: '으.mp3' },
+  { text: '경멸', audio: '으경멸.mp3' },
+  { text: '카악퉤', audio: '카악퉤.mp3' },
+  { text: '카악 퉤', audio: '카악퉤.mp3' },
+  { text: '캭 퉤', audio: '카악퉤.mp3' },
+  { text: '퉤', audio: '카악퉤.mp3' },
+  { text: '카악', audio: '카악퉤.mp3' },
+  { text: '캭', audio: '카악퉤.mp3' },
+  { text: '퉷', audio: '카악퉤.mp3' },
+  // < Thank you 음성빌런 Voice Villein
 ];
 
 class AudioUnit {
