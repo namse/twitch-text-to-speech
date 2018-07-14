@@ -31,6 +31,7 @@ function changeContentReadable(content) {
     .replace(/ㄱㄴ/g, '갔냐?')
     .replace(/ㄷㅈㄱ/g, '뒤지기')
     .replace(/:D/g, '빅스마일')
+    .replace(/\^\^7/g, '충성충성7')
 }
 
 function beReady() {
