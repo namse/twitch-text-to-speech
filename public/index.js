@@ -81,6 +81,12 @@ const signatureSounds = [
   { text: '캭퉤', audio: '캭퉤.mp3', maxCount: 3 },
   { text: '남세놈아', audio: '남세놈아.mp3' },
   // < Thank you 음성빌런 Voice Villein
+
+  { text: 'sex', audio: 'cex.mp3', maxCount: 10 },
+  { text: 'cex', audio: 'cex.mp3', maxCount: 10 },
+  { text: "c'ex", audio: 'cex.mp3', maxCount: 10 },
+  { text: "섹스", audio: 'cex.mp3', maxCount: 10 },
+  { text: "쎾쓰", audio: 'cex.mp3', maxCount: 10 },
 ];
 
 class AudioUnit {
