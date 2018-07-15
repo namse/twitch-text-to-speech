@@ -1,3 +1,5 @@
+const pushChat = require('./pushChat');
+
 const ws = new WebSocket('ws://irc-ws.chat.twitch.tv');
 
 const nick = 'justinfan13113 '; //all lowercase

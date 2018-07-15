@@ -1,14 +1,16 @@
 {
   "name": "twitch-text-to-speech",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "namse",
+  "license": "MIT",
   "description": "",
   "dependencies": {
+    "electron": "^2.0.0",
     "aws-sdk": "^2.195.0",
     "body-parser": "^1.18.2",
     "events": "^2.0.0",
