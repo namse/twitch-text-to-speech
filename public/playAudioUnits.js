@@ -14,13 +14,11 @@ async function play(buffer) {
 }
 
 async function playAudioUnits(audioUnits) {
-  console.log(audioUnits);
   // TODO : Need Optimization
-  await Promise.all(audioUnits.map(async audioUnit => {
-    console.log(audioUnit);
+  for (const audioUnit of audioUnits) {
     const buffer = await audioUnit.convertToAudioBuffer();
     await play(buffer);
-  }));
+  }
 }
 
 module.exports = playAudioUnits;

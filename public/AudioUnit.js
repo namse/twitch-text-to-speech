@@ -34,7 +34,6 @@ class AudioUnit {
         const audioStream = fs.readFileSync(path.join(__dirname, `sounds/${encodeURIComponent(fileName)}`));
         const audioBuffer = await audioContext.decodeAudioData(audioStream.buffer);
 
-        console.log(audioBuffer);
         return audioBuffer;
       }
     }
