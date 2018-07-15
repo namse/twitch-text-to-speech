@@ -31,7 +31,7 @@ class AudioUnit {
           fileName = `${fileName.substring(0, extensionIndex)}${index === 0 ? '' : index}${fileName.substring(extensionIndex)}`;
         }
 
-        const audioStream = fs.readFileSync(path.join(__dirname, `sounds/${encodeURIComponent(fileName)}`));
+        const audioStream = fs.readFileSync(path.join(__dirname, `sounds/${fileName}`));
         const audioBuffer = await audioContext.decodeAudioData(audioStream.buffer);
 
         return audioBuffer;

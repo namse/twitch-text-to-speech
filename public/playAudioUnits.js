@@ -14,6 +14,7 @@ async function play(buffer) {
 }
 
 async function playAudioUnits(audioUnits) {
+  console.log(audioUnits);
   // TODO : Need Optimization
   for (const audioUnit of audioUnits) {
     const buffer = await audioUnit.convertToAudioBuffer();
