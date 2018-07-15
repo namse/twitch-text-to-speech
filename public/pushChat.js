@@ -116,6 +116,9 @@ async function playChat() {
   isPlaying = true;
   await playAudioUnits(audioUnits);
   isPlaying = false;
+  if (chatQueue.length) {
+    await playChat();
+  }
 }
 
 function pushChat(name, content) {
