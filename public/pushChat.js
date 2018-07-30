@@ -33,13 +33,18 @@ const signatureSounds = [
   { text: 'sex', audio: 'cex.mp3', maxCount: 10 },
   { text: 'cex', audio: 'cex.mp3', maxCount: 10 },
   { text: "c'ex", audio: 'cex.mp3', maxCount: 10 },
-  { text: "섹스", audio: 'cex.mp3', maxCount: 10 },
-  { text: "쎾쓰", audio: 'cex.mp3', maxCount: 10 },
+  { text: '섹스', audio: 'cex.mp3', maxCount: 10 },
+  { text: '쎾쓰', audio: 'cex.mp3', maxCount: 10 },
 
-  { text: "지랄하고", audio: '지랄하고.mp3' },
-  { text: "ㅈㄹㅎㄱ", audio: '지랄하고.mp3' },
-  { text: "자빠졌네", audio: '자빠졌네.mp3' },
-  { text: "ㅈㅃㅈㄴ", audio: '자빠졌네.mp3' },
+  { text: '지랄하고', audio: '지랄하고.mp3' },
+  { text: 'ㅈㄹㅎㄱ', audio: '지랄하고.mp3' },
+  { text: '자빠졌네', audio: '자빠졌네.mp3' },
+  { text: 'ㅈㅃㅈㄴ', audio: '자빠졌네.mp3' },
+
+  { text: 'just do it', audio: 'justdoit.mp3' },
+  { text: '저스트 뚜잇', audio: 'justdoit.mp3' },
+  { text: 'do it', audio: 'doit.mp3' },
+  { text: '뚜잇', audio: 'doit.mp3' },
 ];
 
 function changeContentReadable(content) {
