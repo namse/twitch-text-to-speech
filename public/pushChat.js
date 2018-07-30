@@ -23,7 +23,6 @@ const signatureSounds = [
   { text: '변태새끼', audio: '변태새끼.mp3', maxCount: 7 },
   { text: 'ㅂㅌㅅㄲ', audio: '변태새끼.mp3', maxCount: 7 },
 
-
   { text: '않이', audio: '않이.mp3' },
   { text: '으ㅡ', audio: '으.mp3' },
   { text: '경멸', audio: '으경멸.mp3' },
@@ -36,6 +35,11 @@ const signatureSounds = [
   { text: "c'ex", audio: 'cex.mp3', maxCount: 10 },
   { text: "섹스", audio: 'cex.mp3', maxCount: 10 },
   { text: "쎾쓰", audio: 'cex.mp3', maxCount: 10 },
+
+  { text: "지랄하고", audio: '지랄하고.mp3' },
+  { text: "ㅈㄹㅎㄱ", audio: '지랄하고.mp3' },
+  { text: "자빠졌네", audio: '자빠졌네.mp3' },
+  { text: "ㅈㅃㅈㄴ", audio: '자빠졌네.mp3' },
 ];
 
 function changeContentReadable(content) {
