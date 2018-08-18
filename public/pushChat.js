@@ -45,6 +45,10 @@ const signatureSounds = [
   { text: '저스트 뚜잇', audio: 'justdoit.mp3' },
   { text: 'do it', audio: 'doit.mp3' },
   { text: '뚜잇', audio: 'doit.mp3' },
+
+  { text: '안되겠소쏩시다', audio: '안되겠소쏩시다.mp3' },
+  { text: 'ㅇㄷㄳㅆㅅㄷ', audio: '안되겠소쏩시다.mp3' },
+  { text: 'ㅇㄷㄱㅅㅆㅅㄷ', audio: '안되겠소쏩시다.mp3' },
 ];
 
 function changeContentReadable(content) {
