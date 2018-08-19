@@ -55,7 +55,7 @@ function changeContentReadable(content) {
   return content
     .replace(/\r\n/g, '')
     .replace(/ㅋ/g, '깔')
-    .replace(/ㅎ/g, '호홋')
+    .replace(/ㅎ/g, '홋또')
     .replace(/^\?/g, '띠오옹?')
     .replace(/ㅇㅈ/g, '인죵')
     .replace(/ㄹㅇ/g, '레알')
