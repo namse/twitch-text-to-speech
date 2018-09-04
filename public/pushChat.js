@@ -49,6 +49,12 @@ const signatureSounds = [
   { text: '안되겠소쏩시다', audio: '안되겠소쏩시다.mp3' },
   { text: 'ㅇㄷㄳㅆㅅㄷ', audio: '안되겠소쏩시다.mp3' },
   { text: 'ㅇㄷㄱㅅㅆㅅㄷ', audio: '안되겠소쏩시다.mp3' },
+
+  { text: '바리게이트쳐', audio: '바리게이트쳐.mp3' },
+  { text: '들어오시라고요', audio: '들어오시라고요.mp3' },
+  { text: '바리게이트', audio: '바리게이트.mp3' },
+  { text: '쳐야한다고', audio: '쳐야한다고.mp3' },
+  { text: '새끼야', audio: '새끼야.mp3' },
 ];
 
 function changeContentReadable(content) {
