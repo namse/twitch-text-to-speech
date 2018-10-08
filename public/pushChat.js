@@ -63,6 +63,8 @@ const signatureSounds = [
   { text: '의사양반', audio: '의사양반.mp3' },
   { text: '이게무슨소리야', audio: '이게무슨소리야.mp3' },
   { text: '총알이영좋지못한곳에맞았어요', audio: '총알이영좋지못한곳에맞았어요.mp3' },
+
+  { text: '우리전변호사라고인사해', audio: '우리전변호사라고인사해.mp3' },
 ];
 
 function changeContentReadable(content) {
