@@ -57,6 +57,12 @@ const signatureSounds = [
   { text: '새끼야', audio: '새끼야.mp3' },
 
   { text: 'ohmygodronny', audio: 'ohmygodronny.mp3' },
+
+  { text: '내가고자라니', audio: '내가고자라니.mp3' },
+  { text: '아이를가질수없습니다', audio: '아이를가질수없습니다.mp3' },
+  { text: '의사양반', audio: '의사양반.mp3' },
+  { text: '이게무슨소리야', audio: '이게무슨소리야.mp3' },
+  { text: '총알이영좋지못한곳에맞았어요', audio: '총알이영좋지못한곳에맞았어요.mp3' },
 ];
 
 function changeContentReadable(content) {
