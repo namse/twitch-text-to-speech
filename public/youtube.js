@@ -1,4 +1,5 @@
 const pushChat = require('./pushChat');
+const { wait } = require('./wait');
 
 const API_KEY = 'AIzaSyDRsN_9nC8Hh8HQYJamfP712qttIIp3qLw'; // I know it has security problem. but I already whitelist IP.
 
@@ -8,7 +9,7 @@ class YouTubeConnector {
     this.startPolling();
   }
 
-  async getLiveId() {
+  async updateLiveId() {
     const url = 'https://www.googleapis.com/youtube/v3/search' +
       '?eventType=live' +
       '&part=id' +
@@ -19,14 +20,16 @@ class YouTubeConnector {
     const data = await response.json();
 
     const liveId = data.items[0].id.videoId;
-    return liveId;
+    this.liveId = liveId;
   }
 
   async updateChatId() {
-    const liveId = await this.getLiveId();
+    if (!this.liveId) {
+      await this.updateLiveId();
+    }
     const url = 'https://www.googleapis.com/youtube/v3/videos' +
       '?part=liveStreamingDetails' +
-      `&id=${liveId}` +
+      `&id=${this.liveId}` +
       `&key=${API_KEY}`;
     const response = await fetch(url);
     const data = await response.json();
@@ -53,19 +56,36 @@ class YouTubeConnector {
   }
 
   async startPolling() {
-    this.poll();
+    const lastLiveId = localStorage.getItem('lastLiveId');
+    const lastChatId = localStorage.getItem('lastChatId');
+    const lastPageToken = localStorage.getItem('lastPageToken');
+
+    await this.updateLiveId();
+    await this.updateChatId();
+    const { liveId, chatId } = this;
+
+    if (lastLiveId === liveId && lastChatId === chatId) {
+      return this.poll(lastPageToken);
+    }
+
+    localStorage.setItem('lastLiveId', liveId);
+    localStorage.setItem('lastChatId', chatId);
+
+    return this.poll();
   }
 
   async poll(pageToken) {
     const messageList = await this.getMessageList(pageToken);
-    const { pollingIntervalMillis } = messageList;
+    const { pollingIntervalMillis, nextPageToken } = messageList;
 
     messageList.items.forEach((item) => {
       pushChat(item.authorDetails.displayName, item.snippet.displayMessage);
     });
 
+    localStorage.setItem('lastPageToken', nextPageToken);
+
     this.pollingTimer = setTimeout(() => {
-      this.poll(messageList.nextPageToken);
+      this.poll(nextPageToken);
     }, pollingIntervalMillis);
   }
 }
