@@ -13,7 +13,7 @@ async function textToSpeech(text) {
     OutputFormat: 'mp3',
     Text: text,
     TextType: 'text',
-    VoiceId: isEnglish(text) ? 'Brian' : 'Seoyeon',
+    VoiceId: isEnglish(text) ? 'Aditi' : 'Seoyeon',
   };
   const {
     AudioStream: audioStream,
