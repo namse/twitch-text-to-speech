@@ -65,6 +65,10 @@ const signatureSounds = [
   { text: '총알이영좋지못한곳에맞았어요', audio: '총알이영좋지못한곳에맞았어요.mp3' },
 
   { text: '우리전변호사라고인사해', audio: '우리전변호사라고인사해.mp3' },
+
+  { text: '오심상치않은데', audio: '오심상치않은데.mp3', maxCount: 12 },
+  { text: '아윽심상치않은데', audio: '아윽심상치않은데.mp3' },
+  { text: '언제까지심상치않을거야', audio: '언제까지심상치않을거야.mp3' },
 ];
 
 function changeContentReadable(content) {
@@ -151,6 +155,7 @@ async function playChat() {
 }
 
 function pushChat(name, content) {
+  console.log(name, content);
   if (banNames.includes(name)) {
     return;
   }
