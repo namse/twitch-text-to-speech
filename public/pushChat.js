@@ -69,6 +69,8 @@ const signatureSounds = [
   { text: '오심상치않은데', audio: '오심상치않은데.mp3', maxCount: 12 },
   { text: '아윽심상치않은데', audio: '아윽심상치않은데.mp3' },
   { text: '언제까지심상치않을거야', audio: '언제까지심상치않을거야.mp3' },
+
+  { text: 'swed', audio: 'swed.mp3' },
 ];
 
 function changeContentReadable(content) {
