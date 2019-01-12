@@ -71,6 +71,8 @@ const signatureSounds = [
   { text: '언제까지심상치않을거야', audio: '언제까지심상치않을거야.mp3' },
 
   { text: 'swed', audio: 'swed.mp3' },
+  { text: '내눈을믿을수없군', audio: '내눈을믿을수없군.mp3' },
+  { text: '내눈믿', audio: '내눈을믿을수없군.mp3' },
 ];
 
 function changeContentReadable(content) {
@@ -162,6 +164,9 @@ function pushChat(name, content) {
     return;
   }
   if (content.indexOf('!sr') === 0) {
+    return;
+  }
+  if (content.indexOf('[by') >= 0) {
     return;
   }
   chatQueue.push({
